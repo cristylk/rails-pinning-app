@@ -1,0 +1,72 @@
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.8ms)[0m  CREATE TABLE "pins" ("id" serial primary key, "title" character varying, "url" character varying, "text" text, "slug" character varying, "resource_type" character varying) 
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.3ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.6ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150320022457')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318194553')[0m
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.8ms)[0m  DROP TABLE "pins" CASCADE
+  [1m[36m (7.3ms)[0m  [1mCREATE TABLE "pins" ("id" serial primary key, "title" character varying, "url" character varying, "text" text, "slug" character varying, "resource_type" character varying) [0m
+  [1m[35m (0.8ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.7ms)[0m  CREATE TABLE "pins" ("id" serial primary key, "title" character varying, "url" character varying, "text" text, "slug" character varying, "resource_type" character varying) 
+  [1m[36m (5.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.3ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.6ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150320022457')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150318194553')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mPin Exists (1.1ms)[0m  SELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'rails-tutorial' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "pins" ("title", "url", "text", "slug", "resource_type") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Rails Tutorial"], ["url", "https://www.railstutorial.org/"], ["text", "The trusted standard in self-directed introductions to Ruby on Rails. A complete treatment of all the essentials\n    required in most production Rails applications."], ["slug", "rails-tutorial"], ["resource_type", "rails"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mPin Exists (0.4ms)[0m  SELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'rails-for-zombies' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "pins" ("title", "url", "text", "slug", "resource_type") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Rails for Zombies"], ["url", "http://railsforzombies.org"], ["text", "A fun, gamified way to hone your Rails skills! Come on...who doesn't like fighting zombies?!"], ["slug", "rails-for-zombies"], ["resource_type", "rails"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mPin Exists (0.3ms)[0m  SELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'try-ruby' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "pins" ("title", "url", "text", "slug", "resource_type") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Try Ruby"], ["url", "http://tryruby.org/"], ["text", "An interactive, in-browser tutorial for the Ruby programming language. A thorough walkthrough of \n    Ruby's nuances, geared toward beginners."], ["slug", "try-ruby"], ["resource_type", "ruby"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mPin Exists (0.3ms)[0m  SELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'ruby-quiz' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "pins" ("title", "url", "text", "slug", "resource_type") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Ruby Quiz"], ["url", "http://rubyquiz.org"], ["text", "A collection of quizzes on the Ruby programming language."], ["slug", "ruby-quiz"], ["resource_type", "ruby"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mPin Exists (0.4ms)[0m  SELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'ga-ror-for-developers' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "pins" ("title", "url", "text", "slug", "resource_type") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Ruby on Rails for Developers"], ["url", "https://github.com/generalassembly/ga-ruby-on-rails-for-devs"], ["text", "Somewhat advanced curriculum, but the exercises are also good for anyone who is motivated and \n    self-guided with experience."], ["slug", "ga-ror-for-developers"], ["resource_type", "rails"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mPin Exists (0.3ms)[0m  SELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'ruby-monk' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "pins" ("title", "url", "text", "slug", "resource_type") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Ruby Monk"], ["url", "http://rubymonk.com"], ["text", "The Ruby Primer is a free interactive book that helps you learn Ruby. Discover Ruby idioms, learn \n    lessons and solve problems, all in your browser!"], ["slug", "ruby-monk"], ["resource_type", "ruby"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+
+
+Started GET "/" for ::1 at 2015-08-05 13:56:43 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PinsController#index as HTML
+  [1m[35mPin Load (0.8ms)[0m  SELECT "pins".* FROM "pins"
+  Rendered pins/index.erb within layouts/application (24.2ms)
+Completed 200 OK in 3622ms (Views: 3600.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/cosmo-bootswatch-theme-450effffe2a267bc84c90be0448c1ea9.css?body=1" for ::1 at 2015-08-05 13:56:47 -0400
+
+
+Started GET "/assets/pins-105da382e030d4b97e98e5546cef07ec.css?body=1" for ::1 at 2015-08-05 13:56:47 -0400
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-08-05 13:56:47 -0400
+
+
+Started GET "/assets/application-6585814c2f352ab592fb4f2d6e969097.css?body=1" for ::1 at 2015-08-05 13:56:47 -0400
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-08-05 13:56:47 -0400
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for ::1 at 2015-08-05 13:56:47 -0400
+
+
+Started GET "/assets/application-bc105cf26f847567b5eae624a793b626.js?body=1" for ::1 at 2015-08-05 13:56:47 -0400
